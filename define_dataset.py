@@ -3,12 +3,12 @@ from datetime import datetime
 from nltk.tokenize import word_tokenize
 import re, csv
 
-df = pd.read_csv("training.1600000.processed.noemoticon.csv", encoding="latin1", header=None)
+df = pd.read_csv("data/training.1600000.processed.noemoticon.csv", encoding="latin1", header=None)
 cols_to_drop = df.columns[[1, 3]]
 df = df.drop(columns=cols_to_drop)
 df.columns = ["target", "date", "user", "text"]
 
-new_csv = open("project_dataset.csv", "w", newline="", encoding="utf-8")
+new_csv = open("data/project_dataset.csv", "w", newline="", encoding="utf-8")
 csv_writer = csv.writer(new_csv)
 csv_writer.writerow(["target", "date", "user", "text"])
 
